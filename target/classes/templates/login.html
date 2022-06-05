@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" th:href="@{css/login.css}">
+    <script th:src="@{js/jquery.min.js}"></script>
+    <link rel="shutcut icon" th:href="@{/img/icon.gif}"/>
+</head>
+<body>
+<div id=box>
+    <div style="margin-top: 30px; text-align: center; ">
+        <div style="text-align: center; margin-top: 80px; font-size: 30px; color: dodgerblue">教师管理系统</div>
+        <div style="margin-top: 30px">
+            <input type="text" id="username" style="width: 60%; border: 1px solid #ccc; padding: 10px"
+                   placeholder="请输入账号">
+        </div>
+        <div style="margin-top:10px">
+            <input type="password" id="password" style="width: 60%; border: 1px solid #ccc; padding: 10px"
+                   placeholder="请输入密码">
+        </div>
+        <div style="margin-top: 30px">
+            <!--<input id=login type="submit" value="登录"></input>-->
+            <a th:href="@{/index}"><button>登录</button></a>
+            <a th:href="@{/doRegister}" ><button>注册</button></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
