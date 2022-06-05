@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <script th:src="@{js/jquery.min.js}"></script>
+    <link rel="stylesheet" th:href="@{css/register.css}">
+    <link rel="shutcut icon" th:href="@{/img/icon.gif}"/>
+</head>
+<body>
+<div id=box>
+    <div style="margin-top: 30px; text-align: center; ">
+        <div style="text-align: center; margin-top: 80px; font-size: 30px; color: dodgerblue">注册</div>
+        <div style="margin-top: 30px">
+            <input type="text" id="username" style="width: 60%; border: 1px solid #ccc; padding: 10px"
+                   placeholder="请输入用户名">
+        </div>
+        <div style="margin-top:10px">
+            <input type="password" id="password" style="width: 60%; border: 1px solid #ccc; padding: 10px"
+                   placeholder="请输入密码">
+        </div>
+        <div style="margin-top:10px">
+            <input type="password" id="password1" style="width: 60%; border: 1px solid #ccc; padding: 10px"
+                   placeholder="请再次输入密码">
+        </div>
+        <div style="margin-top: 30px">
+            <button onclick="register()">注册</button>
+        </div>
+    </div>
+</div>
+<script>
+    function register() {
+        var username = $("#username").val();
+        var password1 = $("#password").val();
+        var password2 = $("#password1").val();
+        if (Number(password1) == Number(password2)){
+           $.post("/register",{username:username,password:password1},function (res) {
+               if (res ==true){
+                   alert("注册成功");
+                   window.location.href ="/doLogin";
+               } else {
+                   alert("注册失败，请检查数据重试");
+               }
+           })
+        }else {
+            alert("两次密码不一致！");
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.imengying.tms.Mapper.UserMapper">
+    <select id="login" parameterType="top.imengying.tms.Entity.User" resultType="top.imengying.tms.Entity.User">
+        select username,password from user where username=#{username} and password=#{password}
+    </select>
+    <update id="addUser" parameterType="top.imengying.tms.Entity.User">
+        insert into user (username,password) values (#{username},#{password})
+    </update>
+</mapper>
